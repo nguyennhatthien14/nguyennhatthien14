@@ -262,3 +262,310 @@ Here is the code of the AppLinkers websites
 Yes, it's so long. Because I made it on ChatGPT.
 ---The end---
 But I edit again:
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AppLinker - Nền tảng tải và cài đặt ứng dụng hiện đại, đa nền tảng, dễ sử dụng.">
+    <meta name="keywords" content="AppLinker, tải ứng dụng, download platform, tải ứng dụng miễn phí">
+    <meta name="author" content="Đức Trung">
+    <title>AppLinker - Khám phá ứng dụng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../alklogo-removebg-preview.png">
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(120deg, #0A74DA, #4B0082);
+            color: #FFFFFF;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            transition: transform 0.3s ease-in-out, color 0.3s ease;
+        }
+
+        header .logo:hover {
+            transform: scale(1.1);
+            color: #FFD700;
+        }
+
+        header nav a {
+            margin: 0 15px;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        header nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #FFD700;
+            transition: all 0.3s ease-in-out;
+        }
+
+        header nav a:hover {
+            color: #FFD700;
+        }
+
+        header nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero button {
+            padding: 15px 30px;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 30px;
+            color: #000;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #FFC000;
+            transform: translateY(-5px);
+        }
+
+        .app-list {
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s, box-shadow 0.3s ease;
+            animation: popUp 1s ease;
+        }
+
+        @keyframes popUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-card img {
+            width: 80px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .app-card img:hover {
+            transform: rotate(25deg) scale(1.5);
+        }
+
+        .app-card button {
+            background: #FFD700;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .app-card button:hover {
+            background: #FFC000;
+            transform: translateY(-3px);
+        }
+        
+        .thumbnail {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .thumbnail:hover {
+            transform: rotate(25deg) scale(1.5)
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background: #000000;
+            color: #FFFFFF;
+        }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="logo-removebg-preview.png"></div>
+        <nav>
+            <a href="#">Trang chủ</a>
+            <a href="#">Ứng dụng</a>
+            <a href="#">Trò chơi</a>
+            <a href="#">Hỗ trợ</a>
+            <a href="#">Đăng nhập</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Khám phá và Tải xuống Ứng dụng</h1>
+        <p>AppLinker cung cấp nền tảng tải xuống ứng dụng nhanh chóng, an toàn và hiện đại. Tìm ứng dụng yêu thích của bạn ngay hôm nay!</p>
+        <br>
+        <br>
+        <button>Tìm kiếm ngay</button>
+    </section>
+    <section class="app-list">
+        <div class="app-card">
+            <img src="capcut-removebg-preview.png" alt="App 1">
+            <h3>CapCut</h3>
+            <p>CapCut is a free all-in-one video editing app that helps you create incredible videos. Cut, reverse and change speed: getting it just right is easier than ever, posting only your wonderful moments. Advanced filters and flawless beauty effects open up a world of possibilities.</p>
+            <a href="https://lf16-capcut.faceulv.com/obj/capcutpc-packages-us/installer/capcut_capcutpc_0_1.2.6_installer.exe"><button>Tải ngay</button></a>
+        </div>
+        <div class="app-card">
+            <img src="https://raw.githubusercontent.com/lamquangminh/EVKey/master/docs/EVKeyLogo_240.PNG" alt="App 2">
+            <h3>EVKey</h3>
+            <p>EVKey is a Vietnamese percussion keyboard developed by Vietnamese programmer Lam Quang Minh. EVKey is developed based on Unikey's open source code and is released to be compatible with many versions of Windows operating systems (Windows XP, 7, 8, 10, ..) and Mac OS X operating systems.</p>
+            <a href="https://github.com/lamquangminh/EVKey/releases/download/Release/EVKey.zip"><button>Windows</button></a>
+            <a href="https://github.com/lamquangminh/EVKey/releases/download/Release/EVKeyMac.zip"><button>Mac</button></a>
+        </div>
+        <div class="app-card">
+            <img src="https://www.google.com/intl/en_us/earth/about/assets/static/images/logo_google_earth_icon.svg" alt="App 3">
+            <h3>Google Earth</h3>
+            <p>The program maps the Earth by superimposing satellite images, aerial photography, and GIS data onto a 3D globe, allowing users to see cities and landscapes from various angles. Users can explore the globe by entering addresses and coordinates, or by using a keyboard or mouse.</p>
+            <a href="https://dl.google.com/tag/s/appguid%3D%7B65E60E95-0DE9-43FF-9F3F-4F7D2DFF04B5%7D%26iid%3D%7B65E60E95-0DE9-43FF-9F3F-4F7D2DFF04B5%7D%26lang%3Dvi%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Earth%2520Pro%26needsadmin%3DTrue%26brand%3DGGGE/earth/client/GoogleEarthProSetup.exe"><button>Tải ngay</button></a>
+        </div>
+        <div class="app-card">
+            <img src="https://www.google.com/chrome/static/images/chrome-logo-new.webp" alt="App 3">
+            <h3>Google Chrome</h3>
+            <p>Google Chrome browser is a free web browser used for accessing the internet and running web-based applications. The Google Chrome browser is based on the Open Source Chromium web browser project. Google released Chrome in 2008 and issues several updates a year.</p>
+            <a href="https://github.com/GoogleChrome/chrome-extensions-samples/archive/refs/heads/main.zip"><button>Tải ngay</button></a>
+        </div>
+        <div class="app-card">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/free-google-drive-logo-icon-download-in-svg-png-gif-file-formats--technology-brand-social-media-company-logos-pack-icons-6297221.png?f=webp&w=256" alt="App 3">
+            <h3>Google Drive</h3>
+            <p>The program maps the Earth by superimposing satellite images, aerial photography, and GIS data onto a 3D globe, allowing users to see cities and landscapes from various angles. Users can explore the globe by entering addresses and coordinates, or by using a keyboard or mouse.</p>
+            <a href="https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe"><button>Tải ngay</button></a>
+        </div>
+        <div class="app-card">
+            <img src="https://www.d-id.com/wp-content/uploads/2023/04/1656733637logo-canva-png.png" alt="App 3">
+            <h3>Canva</h3>
+            <p>The program maps the Earth by superimposing satellite images, aerial photography, and GIS data onto a 3D globe, allowing users to see cities and landscapes from various angles. Users can explore the globe by entering addresses and coordinates, or by using a keyboard or mouse.</p>
+            <a href="https://www.canva.com/download/windows/canva-desktop/"><button>Tải ngay</button></a>
+        </div>
+        <div class="app-card">
+            <img src="https://cdn.iconscout.com/icon/free/png-256/free-python-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-5-pack-logos-icons-2945099.png?f=webp&w=256" alt="App 3">
+            <h3>Python</h3>
+            <p>The program maps the Earth by superimposing satellite images, aerial photography, and GIS data onto a 3D globe, allowing users to see cities and landscapes from various angles. Users can explore the globe by entering addresses and coordinates, or by using a keyboard or mouse.</p>
+            <a href="https://www.python.org/ftp/python/3.12.5/python-3.12.5-amd64.exe"><button>Tải ngay</button></a>
+        </div>
+        <div class="app-card">
+            <img src="https://www.google.com/intl/en_us/earth/about/assets/static/images/logo_google_earth_icon.svg" alt="App 3">
+            <h3>Google Earth</h3>
+            <p>The program maps the Earth by superimposing satellite images, aerial photography, and GIS data onto a 3D globe, allowing users to see cities and landscapes from various angles. Users can explore the globe by entering addresses and coordinates, or by using a keyboard or mouse.</p>
+            <a href="https://dl.google.com/tag/s/appguid%3D%7B65E60E95-0DE9-43FF-9F3F-4F7D2DFF04B5%7D%26iid%3D%7B65E60E95-0DE9-43FF-9F3F-4F7D2DFF04B5%7D%26lang%3Dvi%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Earth%2520Pro%26needsadmin%3DTrue%26brand%3DGGGE/earth/client/GoogleEarthProSetup.exe"><button>Tải ngay</button></a>
+        </div>
+        <div class="app-card">
+            <img src="https://www.google.com/intl/en_us/earth/about/assets/static/images/logo_google_earth_icon.svg" alt="App 3">
+            <h3>Google Earth</h3>
+            <p>The program maps the Earth by superimposing satellite images, aerial photography, and GIS data onto a 3D globe, allowing users to see cities and landscapes from various angles. Users can explore the globe by entering addresses and coordinates, or by using a keyboard or mouse.</p>
+            <a href="https://dl.google.com/tag/s/appguid%3D%7B65E60E95-0DE9-43FF-9F3F-4F7D2DFF04B5%7D%26iid%3D%7B65E60E95-0DE9-43FF-9F3F-4F7D2DFF04B5%7D%26lang%3Dvi%26browser%3D4%26usagestats%3D1%26appname%3DGoogle%2520Earth%2520Pro%26needsadmin%3DTrue%26brand%3DGGGE/earth/client/GoogleEarthProSetup.exe"><button>Tải ngay</button></a>
+        </div>
+    </section>
+    <footer>
+        <p>© 2024 AppLinker. Tất cả bản quyền được bảo lưu. <a href="#">Trang giới thiệu</a></p>
+        <br>
+        <br>
+        <div class="thumbnail"><img src="../natothumbnail.png"></div>
+    </footer>
+</body>
+</html>
+
+OK NOW IS END!
